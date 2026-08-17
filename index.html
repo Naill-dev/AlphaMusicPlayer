@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <main class="shell">
+    <header class="top">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        Alpha Player
+      </div>
+      <label class="autoplay">
+        <input type="checkbox" id="autoplay" checked />
+        <span>Autoplay</span>
+      </label>
+    </header>
+
+    <section class="player-card">
+      <div class="art-wrap">
+        <div class="art" id="art">
+          <div class="art-rings"></div>
+          <div class="art-core" id="artCore">♪</div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <h1 id="title">Select a track</h1>
+        <p id="artist">—</p>
+      </div>
+
+      <div class="progress-block">
+        <input
+          type="range"
+          id="progress"
+          class="slider"
+          min="0"
+          max="1000"
+          value="0"
+          step="1"
+          aria-label="Seek"
+        />
+        <div class="time-row">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button type="button" class="ctrl" id="prev" aria-label="Previous" title="Previous">⏮</button>
+        <button type="button" class="ctrl ctrl-main" id="play" aria-label="Play" title="Play / Pause">▶</button>
+        <button type="button" class="ctrl" id="next" aria-label="Next" title="Next">⏭</button>
+      </div>
+
+      <div class="volume-row">
+        <span class="vol-icon" id="volIcon">🔊</span>
+        <input
+          type="range"
+          id="volume"
+          class="slider volume"
+          min="0"
+          max="1"
+          value="0.8"
+          step="0.01"
+          aria-label="Volume"
+        />
+      </div>
+    </section>
+
+    <section class="playlist-card">
+      <div class="playlist-head">
+        <h2>Playlist</h2>
+        <span id="trackCount">0 tracks</span>
+      </div>
+      <ul class="playlist" id="playlist"></ul>
+    </section>
+
+    <p class="hint">Space = play/pause · ← → = prev/next · ↑ ↓ = volume</p>
+  </main>
+
+  <audio id="audio" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
